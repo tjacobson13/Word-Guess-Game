@@ -1,1 +1,0 @@
-var words = ["ladder", "horse", "house", "car"];
