@@ -10,6 +10,19 @@
     cursor: pointer; 
 }
 
+#newGame {
+    display: block;
+    padding: 5px 10px 5px 10px;
+    width: 100px;
+    background-color: #212529;
+    color: white;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer; 
+    opacity: 0;
+}
+
 #gameModule {
     font-size: 100px;
     font-style: bold;
@@ -41,6 +54,7 @@
     float: left; 
     color: red;
     margin-right: 17px;
+    opacity: 0;
 }
 
 
@@ -84,7 +98,8 @@
 }   
 
 .color {
-    color: green;
-    font-size: 20px;
-    margin-top: 500px;
+opacity: 1;
+float:left; 
+margin-right: 17px;
+color: green;
 }

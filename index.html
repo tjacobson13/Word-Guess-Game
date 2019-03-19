@@ -49,6 +49,7 @@
                         <p class="lead">Lets play Hangman! Click the button to begin, then start typing letters!
                             </br>
                             <div id="startButton">Start</div>
+                            <div id="newGame">Restart</div>
                             <div id="gameModule">
 
                                 <div id="usedLetters"></br>Used letters: </div>
@@ -79,7 +80,7 @@
     <script>
         $(document).ready(function () {
 
-            var words = ["ladder", "horse", "house", "car"];
+            var words = ["easy", "horse", "house", "car"];
             var guessedLetters = [];
             var letter0 = $('#letter0');
             var letter1 = $('#letter1');
@@ -90,6 +91,7 @@
             var letter6 = $('#letter6');
             var randomWord = words[Math.floor(Math.random() * words.length)];
             var startButton = $('#startButton');
+            var newGame = $('#newGame');
             var gameModule = $("#gameModule");
             var guessedWord = $("#guessedWord");
             var wholeWord = $("#wholeWord");
@@ -106,6 +108,7 @@
                 startButton.css('cursor', 'default');
                 usedLetters.css('opacity', '.8');
                 guessCount.css('opacity', '.8');
+                newGame.css('opacity', '.8');
                 for (i = 0; i < wordLength; i++) {
 
                     guessedWord.append("_ ");
@@ -130,15 +133,63 @@
 
                 guessedLetters.push(String.fromCharCode(keyPress));
                 lastUsedLetter = guessedLetters.slice(-1)[0];
-                lowerLastUsedLetter = lastUsedLetter.toLowerCase;
+                lowerLastUsedLetter = lastUsedLetter.toLowerCase();
                 usedLetters.append(lastUsedLetter.toLowerCase() + ", ");
                 guessNumber++;
                 guessCount.text("Guess count: " + guessNumber);
+                console.log(lowerLastUsedLetter);
 
-    
+                var match0 = document.querySelector("#letter0");
+                var match1 = document.querySelector("#letter1");
+                var match2 = document.querySelector("#letter2");
+                var match3 = document.querySelector("#letter3");
+                var match4 = document.querySelector("#letter4");
+                var match5 = document.querySelector("#letter5");
+                if (lowerLastUsedLetter == match0.innerHTML) {
+                    // match0.addClass("color");
+                    //var element = document.getElementById("letter0");
+                    //element.classList.add("color");
+                    document.getElementById('letter0').style.opacity = '1';
+                }
+                else if (lowerLastUsedLetter == match1.innerHTML) {
+                    // match0.addClass("color");
+                    //var element = document.getElementById("letter0");
+                    //element.classList.add("color");
+                    document.getElementById('letter1').style.opacity = '1';
+                }
+                else if (lowerLastUsedLetter == match2.innerHTML) {
+                    // match0.addClass("color");
+                    //var element = document.getElementById("letter0");
+                    //element.classList.add("color");
+                    document.getElementById('letter2').style.opacity = '1';
+                }
+                else if (lowerLastUsedLetter == match3.innerHTML) {
+                    // match0.addClass("color");
+                    //var element = document.getElementById("letter0");
+                    //element.classList.add("color");
+                    document.getElementById('letter3').style.opacity = '1';
+                }
+                else if (lowerLastUsedLetter == match4.innerHTML) {
+                    // match0.addClass("color");
+                    //var element = document.getElementById("letter0");
+                    //element.classList.add("color");
+                    document.getElementById('letter4').style.opacity = '1';
+                }
+                else if (lowerLastUsedLetter == match5.innerHTML) {
+                    // match0.addClass("color");
+                    //var element = document.getElementById("letter0");
+                    //element.classList.add("color");
+                    document.getElementById('letter5').style.opacity = '1';
+                }
+
+
+                // document.querySelectorAll('container-fluid')(e => e.textContent.includes(lowerLastUsedLetter) ? e.classList.add("color") : false);
+
                 return false;   // Prevents the default action
             };
-
+            $('#newGame').click(function() {
+    location.reload();
+});
 
         });
 
